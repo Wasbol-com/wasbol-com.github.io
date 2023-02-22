@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wasbol.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;400;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #8c8cff;
+      /* font-family: 'Lilita One', sans-serif; */
+      font-family: 'Londrina Solid', sans-serif;
+      display:flex;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      text-transform: uppercase;
+      text-shadow: 
+        4px 4px  0px black,
+        6px 6px  0px black;
+      font-size: 80px;
+    }
+    form {
+      width: 100vw;
+      max-width: 600px;
+      display: flex;
+      padding: 0 6px;
+      flex-wrap: wrap;
+    }
+    input {
+      border: 3px solid black;
+      padding: 15px;
+      font-size: 18px;
+      flex: 2;
+      box-shadow: 4px 4px 0px black;
+      font-family: 'Londrina Solid', sans-serif;
+      font-weight: light;
+    }
+    button {
+      flex: 1;
+      padding: 15px;
+      font-size: 18px;
+      background-color: white;
+      color: black;
+      border: 3px solid black;
+      box-shadow: 4px 4px 0px black;
+      font-family: 'Londrina Solid', sans-serif;
+      font-weight: light;
+    }
+    button:hover {
+      background-color: black;
+      color: white;
+        cursor: pointer;
+    }
+    p {
+      text-shadow: 2px 2px 0px black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wasbol.com</h1>
+  <form
+    id="mail-form"
+    method="POST" 
+    action="https://script.google.com/macros/s/AKfycbwTYngC1D-TXDmxTviy2uw1MAWt5030VpRgOCQC5wE/dev"
+  >
+    <input type="email" name="Email" placeholder="Jouw e-mail adres"></input>
+    <button type="submit">Ja, ik ben op zoek naar een wasbol!</button>
+  </form>
+  <p>We nemen contact met je op zo gauw deze te bestellen is.</p>
+
+  <script>
+    window.addEventListener("load", function() {
+      const form = document.getElementById('mail-form');
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const data = new FormData(form);
+        const action = e.target.action;
+
+        fetch(action, {
+          redirect: "follow",
+          method: 'POST',
+          body: data,
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+        })
+        .then(() => {
+          alert("Success!");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
