@@ -1,1 +1,1 @@
-[wasbol.com](wasbol.com)
+[wasbol.com](https://www.wasbol.com)
