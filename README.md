@@ -1,1 +1,1 @@
-# Wasbol-com.github.io
+[wasbol.com](wasbol.com)
